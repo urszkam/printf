@@ -26,9 +26,7 @@ clean:
 	@rm -f $(OBJS)
 
 tests:
-	@$(CC) $(CFLAGS) -o tests.out .tests.c -L. -lft -I./
-	@valgrind --leak-check=full --show-leak-kinds=all -g ./tests.out
-	@rm -f tests.out
+	@sh .tests/.tests.sh
 
 re: fclean all
 
