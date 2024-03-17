@@ -23,7 +23,7 @@ static int	ft_print_arg(va_list args, int c)
 	else if (c == 'd' || c == 'i')
 		i = ft_put_d(va_arg(args, int));
 	else if (c == 'x' || c == 'X')
-		i = ft_put_x(va_arg(args, int), c);
+		i = ft_put_x(va_arg(args, unsigned int), c);
 	else if (c == 'p')
 		i = ft_put_p(va_arg(args, void *));
 	else if (c == 'u')
