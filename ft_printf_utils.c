@@ -21,3 +21,18 @@ size_t	ft_strlen(const char *s)
 		len++;
 	return (len);
 }
+
+size_t ui_len(unsigned int n, int base)
+{
+	size_t	i;
+    
+    if (n == 0)
+        return (1);
+    i = 0;
+	while (n)
+	{
+		n /= base;
+		i++;
+	}
+	return (i);
+}
