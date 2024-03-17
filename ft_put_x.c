@@ -10,27 +10,27 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-static int hex_len(int n)
-{
-	int	i;
+#include "ft_printf.h"
 
-	while (i)
+static void ft_put_hex_rec(unsigned int n, char *hex)
+{
+	if (n <= 15)
+		ft_put_c(hex[n % 16]);
+	else
 	{
-		n /= 16;
-		i++;
+		ft_put_hex_rec(n / 16, hex);
+		ft_put_c(hex[n % 16]);
 	}
-	return (i);
 }
 
-int	ft_put_x(int n, int c)
+int	ft_put_x(unsigned int n, int c)
 {
-	char *base;
+	char *hex;
 	
 	if (c == 'x')
-		base = "0123456789abcdef";
+		hex = "0123456789abcdef";
 	else
-		base = "0123456789ABCDEF";
-	if (i > 0)
-	print_hex(n, hex);
-	return hex_len(n);
+		hex = "0123456789ABCDEF";
+	ft_put_hex_rec(n, hex);
+	return (ui_len(n, 16));
 }
