@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-int	int_len(int n)
+static int	int_len(int n)
 {
 	int	len;
 
@@ -20,7 +20,7 @@ int	int_len(int n)
 		len = 1;
 	else
 		len = 0;
-	while (n != 0)
+	while (n)
 	{
 		n /= 10;
 		len++;
@@ -28,48 +28,26 @@ int	int_len(int n)
 	return (len);
 }
 
-static void	handle_special_cases(char *str, int *n, int *len)
+static void ft_put_d_rec(int n)
 {
-	if (*n == -2147483648)
+	if (n == -2147483648)
+		ft_put_s("-2147483648");
+	else if (n < 0)
 	{
-		str[(*len)--] = '8';
-		*n /= 10;
+		ft_put_c('-');
+		ft_put_d_rec(-n);
 	}
-	else if (!*n)
-		str[0] = '0';
-	if (*n < 0)
+	else if (n >= 10)
 	{
-		str[0] = '-';
-		*n *= -1;
+		ft_put_d_rec(n / 10);
+		ft_put_c(n % 10 + '0');
 	}
+	else
+		ft_put_c(n + '0');
 }
 
-static char	*ft_itoa(int n)
+int	ft_put_d(int n)
 {
-	int		len;
-	char	*str;
-
-	len = int_len(n);
-	str = (char *) malloc((len + 1) * sizeof(char));
-	if (!str)
-		return (0);
-	str[len--] = '\0';
-	handle_special_cases(str, &n, &len);
-	while (n)
-	{
-		str[len--] = (n % 10) + '0';
-		n /= 10;
-	}
-	return (str);
-}
-
-int	ft_put_d(int i)
-{
-	char *s;
-	int		i;
-	
-	s = ft_itoa(i);
-	i = ft_putstr(s);
-	free(s);
-	return (i);
+	ft_print_d(n);
+	return (int_len(n));
 }
