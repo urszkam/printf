@@ -10,7 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_put_x(int i, int c)
+static int hex_len(int n)
+{
+	int	i;
+
+	while (i)
+	{
+		n /= 16;
+		i++;
+	}
+	return (i);
+}
+
+int	ft_put_x(int n, int c)
 {
 	char *base;
 	
@@ -19,5 +31,6 @@ int	ft_put_x(int i, int c)
 	else
 		base = "0123456789ABCDEF";
 	if (i > 0)
-	print_hex(i, hex);
+	print_hex(n, hex);
+	return hex_len(n);
 }
