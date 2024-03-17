@@ -70,5 +70,6 @@ int	ft_put_d(int i)
 	
 	s = ft_itoa(i);
 	i = ft_putstr(s);
+	free(s);
 	return (i);
 }
