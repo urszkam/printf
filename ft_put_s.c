@@ -13,7 +13,9 @@
 int	ft_put_s(char *str)
 {
 	int len;
-	
+
+	if (!str)
+		str = "(null)";
 	len = ft_strlen(str);
 	write(1, str, len);
 	return (len);
