@@ -22,9 +22,9 @@ size_t	ft_strlen(const char *s)
 	return (len);
 }
 
-size_t ui_len(unsigned int n, int base)
+int ui_len(unsigned int n, int base)
 {
-	size_t	i;
+	int	i;
     
     if (n == 0)
         return (1);
