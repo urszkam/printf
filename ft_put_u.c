@@ -10,4 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_printf.h"
 
+static void ft_put_u_rec(unsigned int n)
+{
+	if (n <= 9)
+		ft_put_c(n % 10 + '0');
+	else
+	{
+		ft_put_u_rec(n / 10);
+		ft_put_c(n % 10 + '0');
+	}
+}
+
+int	ft_put_u(unsigned int n)
+{
+	ft_put_u_rec(n);
+	return (ui_len(n, 10));
+}
