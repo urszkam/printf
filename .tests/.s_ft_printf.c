@@ -1,31 +1,21 @@
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
-void test_s(const char *s)
+void test_c(char *s)
 {
-    printf("%%s: %s\n", s);
+    ft_printf("%%s: %s\n", s);
 }
 
 int main(void)
 {
-    // Basic strings
-    test_s("Hello, world!");
-    test_s("12345");
-
-    // String with escape sequences
-    test_s("This is a newline\n");
-    test_s("This is a tab\\t");
-
-    // Empty string
-    test_s("");
-
-    // String with special characters
-    test_s("Special characters: !@#$%^&*()_+-=[]{};:,.<>?/");
-
-    // Unicode characters
-    test_s("Unicode characters: ☺☃☂☀★");
-
-    // String with null character
-    test_s("String with \0 null character");
-
-    return (1);
+    char *null = NULL;
+    test_c(null);
+    test_c("Hello, world!");        // A normal string
+    test_c("");                     // An empty string
+    test_c("    ");                 // A string with spaces
+    test_c("\t\t\t");               // A string with tabs
+    test_c("\x7F\xFF\x80");         // A string with various non-printable characters
+    test_c("\x48\x65\x6C\x6C\x6F"); // A string represented by its ASCII values ("Hello")
+    test_c("\xC2\xA9");             // A string containing a Unicode character (©)
+    test_c("\xE2\x82\xAC");         // A string containing a Euro symbol (€)
+    test_c("¡Hola!");               // A string containing non-ASCII characters
 }
