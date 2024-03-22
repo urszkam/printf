@@ -2,5 +2,5 @@
 
 int main(void)
 {
-    printf(", len: %d\n", printf("%%%% %%"));
+    printf(", len: %d\n", printf("%%"));
 }

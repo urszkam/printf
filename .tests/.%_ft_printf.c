@@ -1,6 +1,6 @@
-#include "../ft_printf.h"
+#include "ft_printf.h"
 
 int main(void)
 {
-    ft_printf(", len: %d\n", ft_printf("%%%% %%"));
+    ft_printf(", len: %d\n", ft_printf("%%"));
 }

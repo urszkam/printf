@@ -1,8 +1,8 @@
-#include "../ft_printf.h"
+#include "ft_printf.h"
 
 void test_c(int c)
 {
-    ft_printf(", len: %d\n", ft_printf("%%c: %c\n", c));
+    ft_printf(", len: %d\n", ft_printf("%c", c));
 }
 
 int main(void)

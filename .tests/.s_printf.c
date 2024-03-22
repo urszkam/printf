@@ -3,13 +3,13 @@
 
 void test_c(char *s)
 {
-    printf("%%s: %s\n", s);
+    printf(", len: %d\n", printf("%s", s));
 }
 
 int main(void)
 {
     char *s = NULL;
-    printf("%%s: %s\n", s);
+    test_c(s);
     test_c("Hello, world!");        // A normal string
     test_c("");                     // An empty string
     test_c("    ");                 // A string with spaces

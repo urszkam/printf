@@ -2,7 +2,7 @@
 
 void test_c(int c)
 {
-    printf(", len: %d\n", printf("%%c: %c\n", c));
+    printf(", len: %d\n", printf("%c", c));
 }
 
 int main(void)

@@ -1,10 +1,10 @@
 #include <stdio.h>
-#include "./ft_printf.h"
+#include "ft_printf.h"
 
 void test_p(void *p)
 {
-    ft_printf("%%p: %p\n", p);
-    printf("%%p: %p\n", p);
+    ft_printf(", len: %d\n", ft_printf("%p", p));
+    printf(", len: %d\n", printf("%p", p));
 }
 
 int main(void)
