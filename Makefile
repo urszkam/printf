@@ -4,8 +4,8 @@ CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror
 
-SRCS = ft_printf.c ft_printf_utils.c ft_put_c.c \
-	ft_put_s.c ft_put_s.c ft_put_x.c ft_put_p.c
+SRCS = ft_printf.c ft_put_c.c ft_put_u.c\
+	ft_put_s.c ft_put_d.c ft_put_x.c ft_put_p.c \
 
 OBJS = $(SRCS:.c=.o)
 
@@ -26,7 +26,7 @@ clean:
 	@rm -f $(OBJS)
 
 tests:
-	@sh .tests/.tests.sh
+	@(cd .tests; bash .tests.sh)
 
 re: fclean all
 
