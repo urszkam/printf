@@ -13,19 +13,17 @@
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-#include <stdlib.h>
-#include <stdint.h>
-#include <unistd.h>
-#include <stdarg.h>
+# include <stdlib.h>
+# include <stdint.h>
+# include <unistd.h>
+# include <stdarg.h>
 
 int		ft_printf(const char *format, ...);
-int     ft_put_d(int i);
-int     ft_put_s(char *str);
-int     ft_put_c(int c);
-int     ft_put_x(unsigned int n, int c);
-int     ft_put_u(unsigned int n);
-int     ft_put_p(void *p);
-int     ui_len(unsigned int n, int base);
-size_t	ft_strlen(const char *s);
+int		ft_put_d(int i);
+int		ft_put_s(char *str);
+int		ft_put_c(int c);
+int		ft_put_x(unsigned int n, int c);
+int		ft_put_u(unsigned int n);
+int		ft_put_p(void *p);
 
 #endif
