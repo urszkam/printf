@@ -10,9 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_printf.h"
+
+static size_t	ft_strlen(const char *s)
+{
+	size_t	len;
+
+	len = 0;
+	while (s[len])
+		len++;
+	return (len);
+}
+
 int	ft_put_s(char *str)
 {
-	int len;
+	int	len;
 
 	if (!str)
 		str = "(null)";

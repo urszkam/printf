@@ -12,25 +12,25 @@
 
 #include "ft_printf.h"
 
-static void ft_put_hex_rec(unsigned int n, char *hex)
+static int	ft_put_hex_rec(unsigned int n, char *hex, int len)
 {
 	if (n <= 15)
-		ft_put_c(hex[n % 16]);
+		len += ft_put_c(hex[n % 16]);
 	else
 	{
-		ft_put_hex_rec(n / 16, hex);
-		ft_put_c(hex[n % 16]);
+		len = ft_put_hex_rec(n / 16, hex, len);
+		len += ft_put_c(hex[n % 16]);
 	}
+	return (len);
 }
 
 int	ft_put_x(unsigned int n, int c)
 {
-	char *hex;
-	
+	char	*hex;
+
 	if (c == 'x')
 		hex = "0123456789abcdef";
 	else
 		hex = "0123456789ABCDEF";
-	ft_put_hex_rec(n, hex);
-	return (ui_len(n, 16));
+	return (ft_put_hex_rec(n, hex, 0));
 }

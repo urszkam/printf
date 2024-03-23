@@ -12,19 +12,19 @@
 
 #include "ft_printf.h"
 
-static void ft_put_u_rec(unsigned int n)
+static int	ft_put_u_rec(unsigned int n, int len)
 {
 	if (n <= 9)
-		ft_put_c(n % 10 + '0');
+		len += ft_put_c(n % 10 + '0');
 	else
 	{
-		ft_put_u_rec(n / 10);
-		ft_put_c(n % 10 + '0');
+		len = ft_put_u_rec(n / 10, len);
+		len += ft_put_c(n % 10 + '0');
 	}
+	return (len);
 }
 
 int	ft_put_u(unsigned int n)
 {
-	ft_put_u_rec(n);
-	return (ui_len(n, 10));
+	return (ft_put_u_rec(n, 0));
 }
