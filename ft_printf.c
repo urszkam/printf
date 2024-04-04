@@ -16,7 +16,7 @@ static int	ft_print_arg(va_list args, int c)
 {
 	int	i;
 
-	i = -1;
+	i = 0;
 	if (c == 'c')
 		i = ft_put_c(va_arg(args, int));
 	else if (c == 's')
